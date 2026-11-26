@@ -1,0 +1,29 @@
+->sudo apt install maven -y
+->mvn clean package)***
+
+->sudo apt update
+sudo apt install docker.io nano -y
+
+git clone https://github.com/hacker-SE/cs-e34.git
+cd cs-e34
+
+sudo nano Dockerfile=>(Save using ctrl+s and ctrl+x)
+
+Eg- Dockerfile 
+FROM tomcat:10.1-jdk17-temurin
+
+COPY target/<placeholder>.war /usr/local/tomcat/webapps/<placeholder>.war
+
+EXPOSE 8080
+->Then hit ctrl+s(save)-> ctrl+x(to get back)
+sudo docker build -t test .
+
+sudo docker run -d -p 8080:8080 --name test-app test:latest
+
+sudo docker ps
+sudo docker logs test-app
+
+To verify if the if the application is running:
+1.Go back to instances.
+2.Click on instance id.
+3.Copy the machine's public IPV4 address
