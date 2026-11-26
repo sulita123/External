@@ -1,0 +1,99 @@
+docker --version
+docker pull hello-world
+docker images
+docker run hello-world
+docker ps
+docker ps -a
+docker rm 51daa2a98922
+docker rmi hello-world
+
+docker pull redis
+docker run --name newredis -d redis
+docker ps
+docker exec -it newredis redis-cli
+
+docker stop newredis
+docker start newredis
+docker restart newredis
+docker rm newredis
+docker rmi redis
+
+docker pull nginx
+docker run -d --name mynginx -p 8080:80 nginx
+docker ps
+docker stop mynginx
+docker start mynginx
+docker restart mynginx
+docker logs mynginx
+docker exec -it mynginx bash
+docker inspect mynginx
+docker port mynginx
+docker rm -f mynginx
+
+docker pull ubuntu
+docker run -it ubuntu bash
+docker ps -a
+
+docker images
+docker image ls
+docker image inspect nginx
+docker image history nginx
+docker image prune
+
+docker build -t myapp .
+docker build -f Dockerfile -t myapp .
+docker run -d -p 8080:80 --name mycontainer myapp
+
+docker tag myapp username/myapp:v1
+docker login
+docker push username/myapp:v1
+docker logout
+
+docker volume ls
+docker volume create myvolume
+docker volume inspect myvolume
+docker volume rm myvolume
+docker volume prune
+
+docker network ls
+docker network create mynetwork
+docker network inspect mynetwork
+docker network connect mynetwork mycontainer
+docker network disconnect mynetwork mycontainer
+docker network rm mynetwork
+docker network prune
+
+docker compose version
+docker compose up
+docker compose up -d
+docker compose ps
+docker compose logs
+docker compose logs -f
+docker compose build
+docker compose pull
+docker compose stop
+docker compose start
+docker compose restart
+docker compose down
+docker compose down -v
+
+docker stats
+docker top mycontainer
+docker cp file.txt mycontainer:/tmp/
+docker cp mycontainer:/tmp/file.txt .
+docker rename oldname newname
+docker pause mycontainer
+docker unpause mycontainer
+docker kill mycontainer
+
+docker system df
+docker system info
+docker system prune
+docker system prune -a
+docker container prune
+docker image prune -a
+
+docker search nginx
+docker info
+docker version
+docker help
